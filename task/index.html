@@ -18,6 +18,13 @@
     li{
       list-style: none;
     }
+    .project-list .my-task{
+      text-decoration: none;
+      color:orange;
+    }
+    .project-list .my-task:active{
+      color:red;
+    }
   </style>
 </head>
 <body>
@@ -33,10 +40,11 @@
     </p>
     <div>
       <p>项目经验</p>
-      <ul>
+      <ul class="project-list">
         <li>
           <p>项目A：项目时间：2017.1-2017.8</p>
           <p>项目描述：在项目A中负责了xxxxx</p>
+          <p><a class="my-task" href=" https://ccccxr.github.io/IFE/task">我的任务中心</a></p>
         </li>
       </ul>
     </div>
