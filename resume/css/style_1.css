@@ -1,3 +1,4 @@
+
 *{
   margin: 0;
   padding: 0;
@@ -5,13 +6,17 @@
 li{
   list-style: none;
 }
-
+h1{
+  margin: 20px 0;
+}
+h2{
+  margin: 10px 0;
+}
 .container{
   width: 900px;
   margin: 0 auto;
   border: 1px solid #d3d5d6;
   height: 800px;
-  padding-left: 10px;
 }
 .cf::after{
   clear: both;
@@ -22,12 +27,6 @@ li{
 }
 .cf{
   *zoom:1
-}
-h1{
-  margin: 20px 0;
-}
-h2{
-  margin: 10px 0;
 }
 ul{
   margin: 20px 0;
