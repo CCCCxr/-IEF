@@ -1,0 +1,133 @@
+*{
+  margin:0 auto
+}
+ul{
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+.cf:after{
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.cf{
+  *zoom: 1;
+}
+
+/* header */
+header{
+  width: 100%;
+  background: #333333;
+  height: 80px;
+}
+
+.head{
+  width: 960px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 24px;
+  line-height: 80px;
+}
+.head a{
+  color: #fff;
+}
+.head ul{
+  float: right;
+}
+.head li {
+  float: left;
+  margin-left: 10px;
+  font-size: 13px;
+  height: 40px;
+  line-height: 40px;
+}
+
+/* main */
+.main{
+  width: 100%;
+}
+.banner-container{
+  height: 300px;
+  background: #66BB33;
+}
+.banner{
+  position: relative;
+  height: 100%;
+  width: 960px;
+  margin: 0 auto;
+}
+.banner-number{
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+/*
+.banner-number ul {
+  height: 60px;
+}
+ .banner-number li {
+  float: left;
+  height: 35px;
+  width: 30px;
+  background: rgba(255,255,255, .4);
+  line-height: 35px;
+  text-align: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-left: 5px;
+  margin-top: 25px;
+}
+.banner-number .active{
+  margin-top: 0px;
+  height: 60px;
+  line-height: 85px;
+  background: rgba(255,255,255,.8);
+} 
+*/
+
+/* 也可以使用flex做 */
+
+.banner-number ul {
+  height: 60px;
+  width: 140px;
+  display: flex;
+  align-items: flex-end;
+}
+.banner-number li{
+  height: 35px;
+  width: 30px;
+  line-height: 35px;
+  background: rgba(255,255,255, .4);
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-left: 5px;
+  text-align: center;
+}
+.banner-number .active{
+  height: 60px;
+  display: flex;
+  align-items:flex-end;
+  justify-content: center;
+  background: rgba(255,255,255, .8);
+}
+
+/* content-container */
+.content-container{
+  height: 650px;
+  background: #fff;
+}
+footer{
+  height: 120px;
+  text-align: center;
+  background: #666666;
+  color:#fff;
+  overflow: hidden;
+}
+footer p{
+  margin-top: 20px;
+}
