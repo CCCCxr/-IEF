@@ -1,45 +1,403 @@
-body,ul{ margin: 0};
+*{ margin: 0};
 
 section{
   width: 100%;
+  overflow: hidden;
+}
+
+ul,li{
+  list-style: none;
+} 
+.cf::after{
+  content: " ";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.cf{
+  *zoom: 1;
 }
 .content-wrap{
   height: 100%;
   width: 980px;
   margin: 0 auto;
+  overflow: hidden;
 }
+
+/* 模块一 */
 .section1{
   height: 990px;
   background: url(img/bg1.png) no-repeat top center;
   background-size: cover;
   background-attachment: fixed;
+  overflow: hidden;
 }
+.section1 h1 {
+  font-size: 62px;
+  color: #ffffff;
+  font-weight: normal;
+  margin-top: 208px ;
+  text-align: center; 
+}
+.section1 .brief-introduction{
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  margin-top: 86px;
+  text-align: center;
+  width: 766px;
+  margin: 86px  auto 0 auto
+}
+.sign-box{
+  width: 970px;
+  height: 250px;
+  margin: 104px auto 0 auto;
+  border-radius: 2px;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  box-sizing: border-box;
+}
+.sign-title{
+  color: #ffffff;
+  font-size: 16px;
+  margin: 61px auto 0 auto;
+}
+.sign-explain{
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  margin-top: 19px;
+}
+.sign-form{
+  margin-top: 45px;
+}
+.sign-form form{
+  height: 50px;
+  overflow: hidden;
+}
+.sign-form input{
+  width: 292px;
+	height: 50px;
+	border-radius: 2px;
+	border: solid 1px rgba(255, 255, 255, 0.2);
+  background: none;
+  text-indent: 22px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.sign-form input[type="text"]{
+  color: #ffffff;
+  font-size: 14px;
+
+}
+.sign-form input['placeholder']{
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+}
+.sign-form button[type="submit"]{
+  color: #141414;
+  font-size: 12px;
+  height: 50px;
+  width: 120px;
+}
+
+
+/* 模块二 */
 .section2{
   height: 710px;
-	background-color: #ffffff;
+  background-color: #ffffff;
+  text-align: center;
+  color: #141414;
+  overflow: hidden;
 }
+.explain .explain-head{
+  font-size: 14px;
+  margin-top:89px;
+}
+.explain  .explain-content{
+  font-size: 40px;
+  width: 657px;
+  margin: 39px auto 0  auto;
+}
+.explain .explain-list{
+  margin-top: 85px;
+}
+.explain .explain-list ul{
+  padding: 0;
+}
+.explain .explain-list li{
+  float: left;
+  display: flex;
+  margin-bottom: 80px;
+}
+.explain .explain-list li:nth-of-type(even){
+  float: right;
+}
+
+.icon1{
+  width: 30px;
+  height: 49px;
+  margin-right: 30px;
+  background: url(./img/icon-phone.png) no-repeat top center;
+  background-size: cover;
+}
+.icon2{
+  background: url(./img/icon-tick.png) no-repeat top center;
+  background-size: cover;
+  width: 40px;
+  height: 38px;
+  margin-right: 26px;
+}
+.icon3{
+  background: url(./img/icon-pencil.png ) no-repeat top center;
+  background-size: cover;
+  width: 49px;
+  height: 49px;
+  margin-right: 27px;
+}
+.icon4{
+  background: url(./img/icon.png) no-repeat top center;
+  background-size: cover;
+  width: 50px;
+  height: 42px;
+  margin-right: 24px;
+}
+.explain-list .introduction p{
+  width: 355px;
+  text-align: left;
+}
+.explain-list .introduction p:nth-child(1){
+  font-size: 20px;
+}
+.explain-list .introduction p:nth-child(2){
+  margin-top: 25px;
+}
+/* 模块三 */
 .section3{
   height: 800px;
   background: url(img/bg2.png) no-repeat top center;
   background-size: cover;
   background-attachment: fixed;
+  position: relative;
 }
+
+.content-left{
+  float: left;
+}
+.content-head{
+  width: 366px;
+  color: #ffffff;
+  font-size: 42px;
+  margin-top: 183px;
+}
+.content-main{
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  width: 367px;
+  margin-top: 47px;
+}
+.btn-group{
+  margin-top: 58px;
+  font-size: 12px;
+}
+.btn-group button{
+  width: 240px;
+  height: 60px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  border:none;
+  cursor: pointer;
+}
+.btn-group button:nth-child(2){
+  border: solid 1px rgba(255, 255, 255, 0.3);
+  background: none;
+  color: #ffffff;
+}
+.ipad{
+  width: 645px;
+  height: 600px;
+  position: absolute;
+  top: 104px;
+  right: 0px;
+  background: url('./img/ipad.png') no-repeat top center;
+}
+
+/* 模块四 */
 .section4{
   height: 580px;
 }
+.section4 .content-title{
+  font-size: 42px;
+  color: #141414;
+  text-align: center;
+  margin-top: 99px;
+}
+.engineer-introduction-list{
+  margin: 88px auto 0 auto
+}
+
+.engineer-introduction-list li{
+  float: left;
+  width: 272px;
+  margin-right: 60px;
+  color: rgba(20, 20, 20, 0.7);
+  font-size: 16px;
+  text-align: center;
+}
+.engineer-introduction-list li:last-child{
+  margin-right: 0px;
+}
+.engineer-introduction-list li p:first-child{
+  margin-bottom: 43px;
+}
+/* 模块五 */
 .section5{
   height: 1000px;
-	background-color: #ffffff;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.1);
 }
+.section5 .content-wrap{
+  padding-top: 114px;
+  
+}
+.img-text img{
+  float: left;
+  margin-right: 100px;
+}
+.text{
+  overflow: hidden;
+  width: 305px;
+  font-size: 16px;
+  color: rgba(20, 20, 20, 0.7);
+}
+.text p:first-child{
+  font-size: 20px;
+  color: #141414;
+  width: 265px;
+  margin-top: 70px;
+}
+
+
+.img-text2 img{
+  float: right;
+  margin-left: 100px;
+}
+.text2{
+  overflow: hidden;
+  width: 305px;
+  font-size: 16px;
+  color: rgba(20, 20, 20, 0.7);
+}
+.text2 p:first-child{
+  font-size: 20px;
+  color: #141414;
+  width: 265px;
+  margin-top: 70px;
+}
+
+/* 模块六 */
 .section6{
   height: 1084px;
-	background-color: #ffffff;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.1);
 }
+.our {
+  text-align: center;
+}
+.our-title{
+  margin-top: 99px;
+  color: #141414;
+  font-size: 42px;
+}
+.our-explain{
+  width: 695px;
+	font-size: 18px;
+  color: rgba(20, 20, 20, 0.7);
+  margin: 35px auto 0 auto;
+}
+.our-images{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 63px;
+}
+.our-images div{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+/* 模块七 */
 .section7{
   height: 700px;
 	background-color: #ffffff;
 }
+.section7 .content-wrap{
+  display: flex
+}
+.write-box{
+  width: 470px;
+	height: 560px;
+	border-radius: 10px;
+  border: solid 1px rgba(20, 20, 20, 0.1);
+  margin-top: 70px;
+}
+.write-box p {
+  color: #141414;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 51px;
+}
+.write-box form{
+  margin-top: 47px;
+  padding:0 50px;
+}
+.write-box input[type="text"]{
+  width: 370px;
+  height: 50px;
+  text-indent: 22px;
+  font-size: 14px;
+}
+.write-box input[placeholder="Subject"]{
+  margin-top: 30px; 
+}
+.write-box textarea{
+  margin-top: 30px;
+  width: 370px;
+	height: 144px;
+	border-radius: 2px;
+	border: solid 1px rgba(38, 35, 33, 0.2);
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.write-box input[type="submit"]{
+  width: 370px;
+	height: 50px;
+	background-color: #141414;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #ffffff;
+  border: none;
+  margin-top: 30px;
+}
+.contacts{
+  width: 350px;
+  margin-top: 158px;
+  margin-left: 129px;
+}
+.contacts-title{
+  font-size: 42px;
+  color: #141414;
+}
+.contacts-explain{
+  width: 351px;
+  color: rgba(20, 20, 20, 0.7);
+  margin-top: 39px;
+}
 
+.contacts-list{
+  padding: 0;
+  
+}
 footer{
   height: 410px;
 	background-color: #141414;
