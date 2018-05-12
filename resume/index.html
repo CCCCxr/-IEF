@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="./css/style_3.css">
+  <link rel="stylesheet" href="./css/style_2.css">
 </head>
 <body>
   <div class="container cf">
     <section class="title">
         <h1>简历</h1>
+        <div class="btn-itmes">
+            <p>脑经急转弯</p>
+            <p style="margin-top:10px;">Q：三个人叫众，三个火叫焱，三个水叫淼,那是三个鬼叫什么？</p>
+            <button class="result" style="margin-top:10px;">点我在console里面查看答案</button>
+          </div>
     </section>
     <div class="box ">
       <section class="base cf">
@@ -55,6 +60,7 @@
       </section>
       
       <section class="capacity cf">
+        
         <h2>能力描述</h2>
         <div class="content">
           <div class="box-info">
@@ -96,7 +102,14 @@
           </div>
         </div>
       </section>
+
+  
     </div>
   </div>
+  <script>
+    document.querySelector(".result").onclick = () => {
+      console.log("三个鬼当然叫救命啦~~~")
+    }
+  </script>
 </body>
 </html>
