@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>IFE ECMAScript</title>
+  <style>
+    .smile-face{
+      width: 480px;
+      height: 480px;
+      background: url("erik_ce204002.jpg");
+      background-position-y: 0px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+  <button id="fade-btn">淡出</button>
+  <br>
+  <br>
+  <br>
+  <p>笑脸</p>
+  <div class="smile-face">
+
+  </div>
+
+  <script>
+    let btn = document.querySelector("#fade-btn");
+    let div = document.querySelector("#fade-obj");
+    let smileFace = document.querySelector(".smile-face");
+
+    function smile(params) {
+      let y = 0;
+      let isPlayback = false;
+      setInterval(() => {
+        if (isPlayback) {
+          y = y - 480;
+          smileFace.style.backgroundPositionY = `-${y}px`;
+          smileFace.style.backgroundPositionX = `-0px`;
+          if ( y <= 0) {
+            y = 0;
+            isPlayback = false;
+          }
+        } else {
+          y = y + 480;
+          smileFace.style.backgroundPositionY = `-${y}px`;
+          smileFace.style.backgroundPositionX = `-0px`;
+          if (y >= 7680) {
+            isPlayback = true;
+            y = 7680
+          }
+        }
+      }, 80);
+     
+    }
+    smile();
+    /**
+    * 参数传false为淡出，true为淡入
+    */
+    function changeDiv(params) {
+      let opacity = params == true ? 1 : 0.01;
+      let timer = setInterval( () => {
+        if (params) {
+          opacity = opacity - 0.01;
+          if (opacity < 0) opacity = 0;
+          div.style.opacity = opacity;
+          if (opacity <= 0) {
+            clearInterval(timer);
+            btn.innerText = "淡入";
+            btn.removeAttribute("disabled");
+          }
+        } else {
+          opacity = opacity + 0.01;
+          div.style.opacity = opacity;
+          if (opacity > 1) {
+            clearInterval(timer);
+            btn.innerText = "淡出";
+            btn.removeAttribute("disabled");
+          }
+        }
+      },10)
+    }
+    
+    btn.addEventListener("click", () => {
+      btn.setAttribute("disabled", "disabled");
+      if (btn.innerText == "淡出") {
+        changeDiv(true)
+      } else {
+        changeDiv(false)
+      }
+    },false)
+
+    
+  </script>
+</body>
+
+</html>
