@@ -5,8 +5,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    li{
+      list-style: none;
+      cursor: pointer;
+    }
+    li:hover{
+      background: gainsboro;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
 <body>
-  
+  <div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+  <script>
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    let inp = document.querySelector("#email-input");
+    let ul = document.querySelector("#email-sug-wrapper");
+    let index = 0;
+    
+    function getInp() {
+      let val = inp.value;
+      val = val.replace(/(^\s*)|(\s*$)/g, "");
+      val = val.replace(/</g,"&lt;");
+      val = val.replace(/>/g,"&gt;");
+      val = val.replace(/ /g,"&nbsp;");
+      val = val.replace(/\'/g,"&#39;");
+      val = val.replace(/\"/g,"&quot;");
+      return val;
+    }
+    function hideTips() {
+      ul.style.display = "none";
+    }
+    function showTips() {
+      ul.style.display = "block";
+    }
+    /*
+     * 创建提示内容 
+     */
+    function createTips (val,key) {
+      let h = "";
+      if (val) {
+        if (key) {
+          let keyArr = postfixList.filter(item => {
+            if (item.indexOf(key) === 0) {
+              return item;
+            }
+          });
+          if (keyArr.length) {
+            keyArr.forEach(item => {
+              h += '<li>'+ val + '@' + item +'</li>'
+            })
+          } else {
+            postfixList.forEach( item => {
+              h += '<li>'+ val + '@' + item +'</li>'
+            })
+          }
+        } else {
+          postfixList.forEach( item => {
+            h += '<li>'+ val + '@' + item +'</li>'
+          })
+        }
+        showTips();
+        ul.innerHTML = h;
+      } else {
+        hideTips();
+      }
+    }
+    
+    // 监听input
+    inp.onkeyup = function(e) {
+      let inpVal = getInp();
+      if (!inpVal) {
+        hideTips();
+        return false
+      };
+      let lis = ul.children;
+      let lislength = lis.length;
+      let keyCode = e.keyCode;
+      for (let i = 0; i < lis.length; i++) {
+        lis[i].style.backgroundColor = "transparent";
+      }
+
+      if (keyCode == 40) {
+        // 向下键
+        if (index >= lislength ) {
+          index = 0
+        }
+        index ++;
+        console.log(index);
+        lis[index-1].style.backgroundColor = "gainsboro";
+        return false;
+      } else if (keyCode == 38) {
+        e.preventDefault();
+        // 向上
+        console.log(index)
+        if (index == 1) {
+          index = lislength+1;
+        }
+        index --;
+        lis[index-1].style.backgroundColor = "gainsboro";
+        
+        return false;
+      } else if (keyCode == 13) {
+        let text = lis[index-1].innerText;
+        inp.value = text;
+        hideTips();
+        return false;
+      }
+
+      let _index = inpVal.indexOf("@");
+      let _val;
+      let val ;
+      if (_index !== -1) {
+        // @ 前面的字符串
+        val = inpVal.slice(0,_index);
+        // @ 后面的字符串
+        _val = inpVal.slice(_index + 1,inpVal.length);
+        if (_val) {
+          createTips(val,_val);
+        } else {
+          createTips(val);
+        }
+      } else {
+        createTips(inpVal);
+      }
+    }
+    
+    // 选择邮箱
+    ul.onclick = function(e){
+      if (e.target.nodeName == "LI"){
+        let val = e.target.innerText;
+        inp.value = val;
+        hideTips();
+      }
+    }
+    
+   
+  </script>
 </body>
 </html>
