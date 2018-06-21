@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    #table-wrapper{
+      margin-top: 30px;
+      font-size: 13px;
+    }
+    .table-head,
+    .table-body div{
+      width: 840px;
+      display: flex;
+    }
+    #table-wrapper span{
+      height: 30px;
+      width: 60px;
+      border:1px solid gainsboro;
+      box-sizing: border-box;
+      line-height: 28px;
+      text-align: center;
+      border-right: none;
+    }
+    #table-wrapper .table-body div span{
+      border-top: none;
+    }
+    #table-wrapper span:last-child{
+      border:1px solid gainsboro;
+    }
+  </style>
+</head>
+<body>
+  <form id="sel-form">
+    
+    <div id="region-radio-wrapper" data-name="region"></div>
+    <br>
+    <div id="product-radio-wrapper" data-name="product"></div>
+    <br>
+    <button id="sub" type="button">查询</button>
+  </form>
+ 
+  <div id="table-wrapper">
+    <div class="table-head">
+    </div>
+    <div class="table-body">
+    </div>
+  </div>
+
+  <script src="ife31data.js"></script>
+  <script>
+    let regionCheckBox = document.getElementById("region-radio-wrapper");
+    let productCheckBox = document.getElementById("product-radio-wrapper");
+    let tabHead = document.querySelector(".table-head");
+    let tabBody = document.querySelector(".table-body");
+    let btn = document.querySelector("#sub");
+
+    function createCheckBox (wrapper,attributeArr) {
+      let name = wrapper.getAttribute("data-name");
+      let h = "";
+      h += '<label>全选</label>';
+      h += '<input type="checkbox" value="all" check-name="'+ name +'" name="'+ name +'">';
+      for (let i = 0; i < attributeArr.length; i++) {
+        h += '<label>'+ attributeArr[i].text +'</label>';
+        h += '<input type="checkbox"  value="'+ attributeArr[i].value +'"  name="'+ name +'">';
+      }
+      wrapper.innerHTML = h;
+      wrapper.onclick = function (e) {
+        let val = e.target.value;
+        if (val) {
+          let name = e.target.getAttribute("check-name");
+          if (val == "all") {
+            // 是否勾选全选
+            let checked = e.target.checked;
+            if (checked) {
+              let checkboxList = name == "region" ? 
+                regionCheckBox.getElementsByTagName('input'):
+                productCheckBox.getElementsByTagName('input');
+              Array.prototype.forEach.call(checkboxList,item => {
+                item.checked = true;
+              })
+            }
+          } else {
+            console.log(2);
+          } 
+        } 
+      }
+    }
+    let regionCheckBoxData = [{
+      text:"华东",
+      value:"华东"
+    },{
+      text:"华南",
+      value:"华南"
+    },{
+      text:"华北",
+      value:"华北"
+    }]
+    let productCheckBoxData = [{
+      text:"手机",
+      value:"手机"
+    },{
+      text:"笔记本",
+      value:"笔记本"
+    },{
+      text:"智能音箱",
+      value:"智能音箱"
+    }]
+    createCheckBox(regionCheckBox,regionCheckBoxData)
+    createCheckBox(productCheckBox,productCheckBoxData)
+    
+    btn.onclick = function () {
+      let region = document.getElementsByName('region');
+      let product = document.getElementsByName('product');
+      let regionVal = [];
+      let productVal = [];
+      Array.prototype.filter.call(region,item => {
+        if (item.checked == true) {
+          if (item.value != "all") {
+            regionVal.push(item.value);
+          }
+        }
+      })
+      Array.prototype.filter.call(productVal,item => {
+        if (item.checked == true) {
+          if (item.value != "all") {
+            productVal.push(item.value);
+          }
+        }
+      })
+      
+      let arr = [];
+      regionVal.forEach(item => {
+        sourceData.forEach(item2 => {
+          if (item == item2.region) {
+            arr.push(item2)
+          }
+        })
+      })
+      
+      createTable(arr);
+    }
+    // 表格渲染
+    function createTable(data) {
+      // 表头
+      let hHead = "";
+      hHead += '<span>商品</span><span>地区</span>';
+      for (let i = 1; i < 13; i++){
+        hHead += '<span>' + i + '月</span>'
+      }
+      tabHead.innerHTML = hHead;
+      // 表格内容
+      let hBody = "";
+      for (let i = 0; i < data.length; i++) {
+        hBody += '<div>'
+        hBody += '<span>'+ data[i].product +'</span><span>'+ data[i].region +'</span>'
+        for (let j = 0; j < data[i].sale.length; j++) {
+          hBody += '<span>'+ data[i].sale[j] +'</span>'
+        }
+        hBody += '</div>'  
+      }
+
+      tabBody.innerHTML = hBody
+    }
+
+  </script>
+</body>
+</html>
