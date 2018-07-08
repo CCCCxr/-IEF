@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+      #table-wrapper{
+        margin-top: 30px;
+        font-size: 13px;
+      }
+      .table-head,
+      .table-body div{
+        width: 840px;
+        display: flex;
+      }
+      #table-wrapper span{
+        height: 30px;
+        width: 60px;
+        border:1px solid gainsboro;
+        box-sizing: border-box;
+        line-height: 28px;
+        text-align: center;
+        border-right: none;
+      }
+      #table-wrapper .table-body div span{
+        border-top: none;
+      }
+      #table-wrapper span:last-child{
+        border:1px solid gainsboro;
+      }
+    </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- <select id="">
+      <option value="">请选择</option>
+      <option value="华东">华东</option>
+      <option value="华南">华南</option>
+      <option value="华北">华北</option>
+    </select>
+    <select id="">
+        <option value="">请选择</option>
+        <option value="手机">手机</option>
+        <option value="笔记本">笔记本</option>
+        <option value="智能音箱">智能音箱</option>
+      </select> -->
+    <div class="region-select">
+      <input type="radio" name="region" value="华东">华东
+      <input type="radio" name="region" value="华南">华南
+      <input type="radio" name="region" value="华北">华北
+    </div>
+    <div class="goods-select">
+      <input type="radio" name="goods" value="手机">手机
+      <input type="radio" name="goods" value="笔记本">笔记本
+      <input type="radio" name="goods" value="智能音箱">智能音箱
+    </div>
+
+  </div>
+  <div id="table-wrapper">
+      <div class="table-head"></div>
+      <div class="table-body"></div>
+  </div>
+  <script src="ife31data.js"></script>
+  <script>
+    function $(el) {
+      return document.querySelector(el)
+    }
+    let table = $("#table-wrapper");
+    let regionSel = $("#region-select");
+    let tabHead = $(".table-head");
+    let tabBody = $(".table-body");
+    // 更改选项
+    // regionSel.onchange = (e) => {
+    //   let region = e.target.value
+    //   if (region) {
+    //     getData(region)
+    //   }
+    // }
+    function regionSelVal() {
+      
+    }
+    function GoodsSelVal() {
+
+    }
+    //获取数据
+    function getData() {  
+      let region = regionSelVal();
+      let goods = GoodsSelVal();
+      let dataArr = sourceData.filter(item => {
+        if (item.region == region) {
+          return item
+        } 
+      })
+      createTable(dataArr)
+    }
+    // 渲染表格
+    function createTable (data) {
+        // 表头
+      let hHead = "";
+      hHead += '<span>商品</span><span>地区</span>';
+      for (let i = 1; i < 13; i++){
+        hHead += '<span>' + i + '月</span>'
+      }
+      tabHead.innerHTML = hHead;
+      // 表格内容
+      let hBody = "";
+      for (let i = 0; i < data.length; i++) {
+        hBody += '<div>'
+        hBody += '<span>'+ data[i].product +'</span><span>'+ data[i].region +'</span>'
+        for (let j = 0; j < data[i].sale.length; j++) {
+          hBody += '<span>'+ data[i].sale[j] +'</span>'
+        }
+        hBody += '</div>' ;
+        tabBody.innerHTML = hBody
+      }
+    }
+  </script>
+</body>
+</html>
