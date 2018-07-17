@@ -22,16 +22,16 @@
       this.money = options.money;
       this.seatNum = options.seatNum;
       this.officeClerks = [];
-      this.addOfficeClerk = function (officeClerk) {
-        this.officeClerks.push(officeClerk)
-      };
-      this.removeOfficeClerk = function (officeClerk) {
-        this.officeClerks.forEach((item,index) => {
-          if (item == officeClerk) {
-            this.officeClerks.splice(index,i)
-          }
-        })
-      }
+    }
+    DiningRoom.prototype.addOfficeClerk = function (officeClerk) {
+      this.officeClerks.push(officeClerk)
+    };
+    DiningRoom.prototype.removeOfficeClerk = function () {
+      this.officeClerks.forEach((item,index) => {
+        if (item == officeClerk) {
+          this.officeClerks.splice(index,i)
+        }
+      })
     }
     /**
      * 职员类
@@ -40,25 +40,33 @@
      * @method finishWork 完成一次工作
      * 
     */
-    function officeClerk (options) {
+    function OfficeClerk (options) {
       this.name = options.name;
       this.salary = options.salary;
-      this.finishWork = function () {
-        console.log(this.name + 'is finishWork')
-      }
+      this.finishWork = options.finishWork;
     }
+    /**
+     * 服务员类 继承职员类
+     * @method 
+    */
+    function Waiter () {} 
+    Waiter.prototype = new OfficeClerk();
+    /**
+     * 厨师类 继承职员类
+    */
+    function Chef () { }
+    Chef.prototype = new OfficeClerk();
     /**
      * 顾客类
      * @method order 点菜
      * @method eat 吃
     */
-    function customer () {
-      this.order = function () {
-        console.log('order')
-      };
-      this.eat = function () {
-        console.log('eat')
-      }
+    function Customer () {}
+    Customer.prototype.order = function () {
+      console.log('order')
+    }
+    Customer.prototype.eat = function () {
+      console.log('eat')
     }
     /**
      * 菜品类
@@ -71,6 +79,7 @@
       this.price = options.name;
       this.cost = options.cost
     }
+    
   </script>
 </body>
 </html>
