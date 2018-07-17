@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="es5-oop.js"></script>
+  <script>
+    let ifeRestaurant = new Restaurant({
+      cash:1000000,
+      seats: 20,
+      staff:[]
+    })
+    console.log(ifeRestaurant);
+    let newCook = new Cook("Tony", 10000);
+
+    ifeRestaurant.addStaff(newCook);
+    console.log(ifeRestaurant.staff);
+
+    ifeRestaurant.removeStaff(newCook);
+    console.log(ifeRestaurant.staff); 
+    
+  </script>
+</body>
+</html>
