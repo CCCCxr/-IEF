@@ -4,7 +4,7 @@
      * 餐厅类
      * @param moeny 金钱
      * @param seatNum 座位数量
-     * @param 职员列表
+     * @param staff 职员列表
      * @method addOfficeClerk 招聘职员
      * @method removeOfficeClerk 删除某个职员
     */
@@ -77,6 +77,6 @@
   */
   function Dishes (options) {
     this.name = options.name;
-    this.price = options.name;
+    this.price = options.price;
     this.cost = options.cost
   }
