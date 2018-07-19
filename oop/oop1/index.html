@@ -14,9 +14,17 @@
       seats: 20,
       staff:[]
     })
+    console.log('餐厅实例')
+    console.log(ifeRestaurant);
     let newCook = new Cook("Tony", 10000);
+ 
     ifeRestaurant.addStaff(newCook);
+    console.log('增加Tony')
+    console.log(ifeRestaurant.staff);
+
     ifeRestaurant.removeStaff(newCook);
+    console.log('辞退Tony')
+    console.log(ifeRestaurant.staff); 
     
   </script>
 </body>
