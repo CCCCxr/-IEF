@@ -9,7 +9,17 @@
 <body>
   <script src="index.js"></script>
   <script>
-    
+    let ifeRestaurant1 = Restaurant.getInstance({
+      cash:1000000,
+      seats: 20,
+      staff:[]
+    })
+    let ifeRestaurant2 = Restaurant.getInstance({
+      cash:1000000,
+      seats: 20,
+      staff:[]
+    })
+    console.log(ifeRestaurant1 == ifeRestaurant2);
   </script>
 </body>
 </html>
